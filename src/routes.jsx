@@ -19,6 +19,10 @@ import BegginerCoursePriceMain from "./Pages/BegginerCoursePrice/BegginerCourseP
 import BlogsPageMain from "./Pages/BlogsPage/BlogsPageMain";
 import BlogDetailPage from "./Pages/BlogsPage/BlogDetailPage";
 import FAQMain from "./Pages/FAQPage/FAQMain";
+import SignUp from "./Pages/Auth/SignUp";
+import SignIn from "./Pages/Authentication_Page/SignIn/SignIn";
+import ForgetPassword from "./Pages/Authentication_Page/ForgetPassword/ForgetPassword";
+import CreatePassword from "./Pages/Authentication_Page/CreatePassword/CreatePassword";
 export default function Router() {
 
 
@@ -43,6 +47,23 @@ export default function Router() {
         path:'/contact-us',
         element : <ContactUs /> ,
        },
+
+       {
+        path:'/sign-up',
+        element : <SignUp /> ,
+       },
+       {
+        path:'/sign-in',
+        element : <SignIn /> ,
+       },
+       {
+        path:'/forget-password',
+        element : <ForgetPassword /> ,
+       },
+       {
+        path:'/create-password',
+        element : <CreatePassword /> ,
+       }
 
 
        {
