@@ -12,6 +12,10 @@ import SingleProduct from "./Pages/ShopPage/SingleProduct";
 import ComingSoon from "./components/ComingSoon";
 import AboutUs from "./Pages/AboutUS/AboutUs";
 import ContactUs from "./Pages/ContactUs";
+import SignUp from "./Pages/Auth/SignUp";
+import SignIn from "./Pages/Authentication_Page/SignIn/SignIn";
+import ForgetPassword from "./Pages/Authentication_Page/ForgetPassword/ForgetPassword";
+import CreatePassword from "./Pages/Authentication_Page/CreatePassword/CreatePassword";
 export default function Router() {
 
 
@@ -36,6 +40,23 @@ export default function Router() {
         path:'/contact-us',
         element : <ContactUs /> ,
        },
+        
+       {
+        path:'/sign-up',
+        element : <SignUp /> ,
+       },
+       {
+        path:'/sign-in',
+        element : <SignIn /> ,
+       },
+       {
+        path:'/forget-password',
+        element : <ForgetPassword /> ,
+       },
+       {
+        path:'/create-password',
+        element : <CreatePassword /> ,
+       }
 
 
 
