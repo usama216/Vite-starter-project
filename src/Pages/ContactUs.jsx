@@ -14,12 +14,27 @@ const ContactUs = () => {
 <Page title="Contact us">
 
 
-<Box sx={{padding:'2rem 10%'}}>
-  <Grid container spacing={4}>
+<Box sx={{padding:'1rem 10%'}}>
+
+
+<Box sx={{padding:'5rem 4rem', backgroundColor:theme.palette.primary.main}}>
+
+<Grid container spacing={4} sx={{backgroundColor:'white'}}>
 <Grid item lg={6} md={6} sm={12} xs={12}>
 <Box sx={{display:'flex', justifyContent:'space-between', alignItems:'start', flexDirection:'column'}}>
 <Typography sx={{color:theme.palette.primary.main, fontWeight:600, fontSize:'3rem'}}>Contact</Typography>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <Typography color={'grey'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus sint aut debitis cupiditate quidem obcaecati soluta veniam nemo, laborum odio ipsum beatae ipsam impedit asperiores ea amet facere aspernatur?</Typography>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 <Typography sx={{ fontWeight:600, fontSize:'3rem'}}>Logo</Typography>
 
 
@@ -71,8 +86,14 @@ Submit Now
 
 </Button>
 
+<br/>
+<br/>
+<br/>
+
 </Grid>
   </Grid>
+
+</Box>
 </Box>
 
 

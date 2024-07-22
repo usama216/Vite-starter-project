@@ -12,6 +12,13 @@ import SingleProduct from "./Pages/ShopPage/SingleProduct";
 import ComingSoon from "./components/ComingSoon";
 import AboutUs from "./Pages/AboutUS/AboutUs";
 import ContactUs from "./Pages/ContactUs";
+import AdvanceCourseMain from "./Pages/AdvanceCoursePage/AdvanceCourseMain";
+import BegginerCoursesMain from "./Pages/BegginerCoursesPage/BegginerCoursesMain";
+import AdvanceCoursePriceMain from "./Pages/AdvanceCoursePrice/AdvanceCoursePriceMain";
+import BegginerCoursePriceMain from "./Pages/BegginerCoursePrice/BegginerCoursePriceMain";
+import BlogsPageMain from "./Pages/BlogsPage/BlogsPageMain";
+import BlogDetailPage from "./Pages/BlogsPage/BlogDetailPage";
+import FAQMain from "./Pages/FAQPage/FAQMain";
 export default function Router() {
 
 
@@ -35,6 +42,47 @@ export default function Router() {
        {
         path:'/contact-us',
         element : <ContactUs /> ,
+       },
+
+
+       {
+        path:'/advance-course',
+        element : <AdvanceCourseMain /> ,
+       },
+
+
+       {
+        path:'/begginer-course',
+        element : <BegginerCoursesMain /> ,
+       },
+
+       {
+        path:'/advance-course-price',
+        element : <AdvanceCoursePriceMain /> ,
+       },
+
+
+       {
+        path:'/begginer-course-price',
+        element : <BegginerCoursePriceMain/> ,
+       },
+
+
+       {
+        path:'/blogs',
+        element : <BlogsPageMain/> ,
+       },
+
+
+       {
+        path:'/blog-detail',
+        element : <BlogDetailPage/> ,
+       },
+
+
+       {
+        path:'/faqs',
+        element : <FAQMain/> ,
        },
 
 

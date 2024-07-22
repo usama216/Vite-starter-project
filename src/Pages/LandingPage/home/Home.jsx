@@ -22,7 +22,6 @@ function Home() {
         <Beginner_course/>
         <Our_mission/>
         <Student_testimonials/>
-        <Footer/>
     </section>
     </>
   )
