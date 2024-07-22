@@ -1,59 +1,79 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Grid, TextField, Typography, useTheme } from '@mui/material'
 import React, { useEffect } from 'react'
-import MainComponent from './Components/MainComponent'
 import Page from '../components/page'
 const ContactUs = () => {
 
   useEffect(()=>{
     window.scrollTo(0,0)
       },[])
+      const theme = useTheme()
 
   return (
     <>
 
-<Page title="Where to find us">
+<Page title="Contact us">
 
-<Box
-        sx={{
-          backgroundImage: `linear-gradient(90deg, rgba(0,0,0,0.1) 30.2%, rgba(0,0,0,0.1) 90.9%),url(${"/common.webp"})`,
 
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "none",
-          height: "50vh",
-          width: "100%",
-        }}
-      >
-        <Box
-          sx={{
-            color: "white",
+<Box sx={{padding:'2rem 10%'}}>
+  <Grid container spacing={4}>
+<Grid item lg={6} md={6} sm={12} xs={12}>
+<Box sx={{display:'flex', justifyContent:'space-between', alignItems:'start', flexDirection:'column'}}>
+<Typography sx={{color:theme.palette.primary.main, fontWeight:600, fontSize:'3rem'}}>Contact</Typography>
+<Typography color={'grey'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos temporibus sint aut debitis cupiditate quidem obcaecati soluta veniam nemo, laborum odio ipsum beatae ipsam impedit asperiores ea amet facere aspernatur?</Typography>
+<Typography sx={{ fontWeight:600, fontSize:'3rem'}}>Logo</Typography>
 
-            minHeight: "60vh",
-            display: "flex",
-            textAlign: "center",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            paddingLeft: "5%",
-            paddingRight: "5%",
-          }}
-        >
-          <Box minHeight={"8rem"}>
-            <Typography
 
-              sx={{
-                cursor: "pointer",
-                fontSize: "2.5rem",
-                fontWeight: "600",
-              }}
-            >
-              Where To Find Us
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
+</Box>
 
-<MainComponent/>
+</Grid>
+
+
+
+
+<Grid item lg={6} md={12} sm={12} xs={12}>
+
+<Box>
+  <Typography sx={{fontWeight:'600', fontSize:'1.5rem'}}>Enter Details</Typography>
+<Typography>Name*</Typography>
+  <TextField size='small' fullWidth placeholder='Enter Your Name'/>
+
+<br/>
+<br/>
+
+<Typography>Email*</Typography>
+  <TextField size='small' fullWidth placeholder='Enter Your Email'/>
+
+
+  <br/>
+<br/>
+
+<Typography>Phone*</Typography>
+  <TextField size='small' fullWidth placeholder='Enter Your Phone'/>
+
+
+
+  <br/>
+<br/>
+
+<Typography>How Can We Help You*</Typography>
+  <TextField size='small' fullWidth placeholder='Type...' multiline rows={5}/>
+
+</Box>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<Button variant='contained' sx={{borderRadius:'0px', textTransform:'none'}}>
+
+Submit Now
+
+</Button>
+
+</Grid>
+  </Grid>
+</Box>
 
 
 </Page>

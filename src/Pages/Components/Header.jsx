@@ -14,7 +14,7 @@ import {
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/actions/authActions";
+import { userLogout } from "../../store/actions/authActions";
 
 const Header = () => {
   const location = useLocation();
@@ -48,7 +48,7 @@ const Header = () => {
 
   const handleMenuItemClick = (value) => {
     if (value === "Logout") {
-      dispatch(logout());
+      dispatch(userLogout());
       dispatch({
         type: "RESET_STATE",
       });

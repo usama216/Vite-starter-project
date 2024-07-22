@@ -5,8 +5,8 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import Router from './routes';
 import './App.css';
 import Header from './Pages/Components/Header';
-import Footer from './Pages/Components/Footer';
 import { useLocation } from 'react-router-dom'; // Import the useLocation hook
+import Footer from './Pages/LandingPage/footer/Footer';
 
 function App() {
   const location = useLocation(); // Get the current location using useLocation hook
@@ -25,9 +25,14 @@ function App() {
           >
             <ErrorBoundary>
               {/* Conditionally render Header and Footer */}
-              {showHeaderAndFooter && <Header />}
+              {/* {showHeaderAndFooter && <Header />} */}
+
+
               <Router />
-              {showHeaderAndFooter && <Footer />}
+
+<Footer/>
+
+
             </ErrorBoundary>
           </SnackbarProvider>
         </StyledEngineProvider>
