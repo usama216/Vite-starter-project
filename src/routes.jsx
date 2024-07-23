@@ -100,6 +100,11 @@ export default function Router() {
         element : <BlogDetailPage/> ,
        },
 
+       {
+        path:'/admin',
+        element : <AdminMain/> ,
+       },
+
 
        {
         path:'/faqs',

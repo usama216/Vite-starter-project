@@ -23,7 +23,7 @@ const AboutSection1 = () => {
                 text ever since the 1500s, when an unknown printer took a gal
               </Typography>
               <Button
-                variant="contained"
+                variant="contained" 
                 sx={{
                   backgroundColor: "white",
                   mt: 4,

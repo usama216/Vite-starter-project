@@ -54,7 +54,7 @@ const AdminMain = () => {
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
           <Toolbar>
             <Typography variant="h6" noWrap component="div">
-              Ex Furniture Admin
+              Logo
             </Typography>
             <Button variant="contained" sx={{ ml: 'auto' }} color="secondary" onClick={handleSignOut}>
               Signout
