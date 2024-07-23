@@ -25,7 +25,7 @@ function App() {
           >
             <ErrorBoundary>
               {/* Conditionally render Header and Footer */}
-              {/* {showHeaderAndFooter && <Header />} */}
+              <Header />
 
 
               <Router />

@@ -1,12 +1,37 @@
 import React from 'react'
 import "./Beginner_course.css"
 import Beginner_course_card from './Beginner.course-card.jsx'
+import { Box, Typography, useTheme } from '@mui/material'
+import BegginerCourseCard from '../../../BegginerCoursesPage/BegginerCourseCard.jsx'
 
 function Beginner_course() {
+ const theme = useTheme()
   return (
+
+
+    <>
+
+
+
+
+<Box sx={{textAlign:'center'}}>
+
+
+<Typography sx={{color:theme.palette.primary.main, fontWeight:700, fontSize:'2rem'}}>Begginer Level Courses</Typography>
+<Typography>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio maiores minus velit saepe.
+</Typography>
+
+
+
+</Box>
+
+
+<BegginerCourseCard/>
+
+
     <div className='beginner-course-main-div'>
-        <h1>Begineer Level Courses </h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis facere recusandae, nobis suscipit molestiae natus inventore tempore quam similique illum? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae non delectus velit accusantium. Totam inventore ipsum voluptatum atque perferendis optio corporis ma</p>
+
         <div className='beginner-image-div'>
             <Beginner_course_card image="./assets/beginner_course/beginner_1.png"
             description=" lorem lorem lorem loem "/>
@@ -18,6 +43,8 @@ function Beginner_course() {
             description=" lorem lorem lorem loem "/>
         </div>
     </div>
+    </>
+
   )
 }
 

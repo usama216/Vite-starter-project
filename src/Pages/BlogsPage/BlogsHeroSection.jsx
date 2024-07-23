@@ -1,13 +1,16 @@
-import { Box, Button, Grid, Typography } from '@mui/material'
+import { Box, Button, Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
 
 const BlogHeroSection = () => {
+  const theme  = useTheme()
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <>
 
 <Box
         sx={{
-          padding: "0rem 10%",
+          padding: isSmall ? '3rem 10%': "4rem 10%",
           background: "linear-gradient(to bottom, #901953, #000000)",
         }}
       >

@@ -22,7 +22,7 @@ const AdvanceCoursesCard = () => {
   return (
     <>
       <Box sx={{ padding: "3rem 10%" }}>
-        <Grid container spacing={5}>
+        <Grid container>
 
 
 {advanceData.map((val, ind)=>(

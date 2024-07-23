@@ -47,25 +47,27 @@ box-sizing: border-box;
     /* align-items: center; */
     flex-direction: column;
 }
-.home-about-text h1 {
+.home-about-text h2 {
     font-size: 1.5rem;
     font-weight: 600;
 }
 .home-about-text p {
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 0.9rem;
+    color:grey;
+    /* font-weight: 400; */
     margin-top: .5rem;
 }
 .home-about-text button {
     height: 2.8rem;
     width: 9rem;
-     font-size:1.2rem;
+     font-size:1rem;
+     border-radius: 0px;
+     text-transform: none;
      background-color: #960256;
      color: white;
      font-weight:500;
      border: none;
      outline: none;
-     font-family: "roboto";
      cursor:  pointer;
      margin-top: 1.5rem;
 }

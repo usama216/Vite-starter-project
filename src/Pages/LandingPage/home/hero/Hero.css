@@ -10,11 +10,12 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding: 2% 10%; 
+    padding: 2% 10%;
+    height: 90vh;
 }
 .hero-section-text{
     width: 50%;
-    margin-top: 3rem;
+    margin-top: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,7 +31,7 @@
     font-weight: 100;
     color: white;
     font-size: 4.2rem;
-    
+
  }
 .hero-section-text button{
     height: 3rem;

@@ -1,36 +1,33 @@
+
+
 import React, { useState } from "react";
 import {
-  Avatar,
   Box,
   Button,
+  Divider,
   Drawer,
-  FormControl,
-  MenuItem,
-  Select,
-  Typography,
   IconButton,
+  Typography,
   useTheme,
 } from "@mui/material";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../store/actions/authActions";
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const judge_check = location.pathname.includes("judge-score-card") || location.pathname.includes("judge-login");
+  const judge_check =
+    location.pathname.includes("judge-score-card") ||
+    location.pathname.includes("judge-login");
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
   };
-
-  // const handleLogin = () => {
-  //   navigate("/admin-login");
-  //   setDrawerOpen(false);
-  // };
 
   const handleLogin = () => {
     if (judge_check) {
@@ -44,6 +41,7 @@ const Header = () => {
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
+
   const dispatch = useDispatch();
 
   const handleMenuItemClick = (value) => {
@@ -55,16 +53,12 @@ const Header = () => {
     }
   };
 
-  const participantPageRegex = /^\/public-screen\/[^\/]+$/;
-  const participantRegisterPage = /^\/admin\/contest\/[^\/]+$/;
-  const publicResultPage = /^\/public-screen-result\/[^\/]+$/;
-
   const currentPath = location.pathname;
 
   const isHidden =
-    participantPageRegex.test(currentPath) ||
-    participantRegisterPage.test(currentPath) ||
-    publicResultPage.test(currentPath) ||
+    /^\/public-screen\/[^\/]+$/.test(currentPath) ||
+    /^\/admin\/contest\/[^\/]+$/.test(currentPath) ||
+    /^\/public-screen-result\/[^\/]+$/.test(currentPath) ||
     currentPath === "/public-screen-result" ||
     currentPath === "/admin_side_screen1" ||
     currentPath === "/admin_side_screen2" ||
@@ -77,259 +71,112 @@ const Header = () => {
   const auth = useSelector((state) => state?.admin?.isAuthenticated);
   const username = useSelector((state) => state?.admin?.user?.name);
 
-  const handleAddEvent = () => {
-    navigate("/admin/welcome");
-  };
+  const menuItems = [
+    { label: "Home", route: "/" },
+    { label: "Courses", route: "/advance-course" },
+    { label: "About", route: "/about-us" },
+    { label: "Faq's", route: "/faqs" },
+    { label: "Blogs", route: "/blogs" },
+    { label: "Contact", route: "/contact-us" },
+  ];
 
   return (
     <Box
       sx={{
-        backgroundColor: "white",
-        padding: "0rem 5%",
+        backgroundColor: "transparent",
+        padding: "2rem 10%",
+        color: "white",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        position: "static",
+        position: "absolute",
         top: 0,
-        zIndex: 10000000,
-        boxShadow: "1px 1px 1px #ededed",
+        left: 0,
+        right: 0,
+        zIndex: 1000,
       }}
     >
       <Box>
-        <Link to="/">
-          <img
-            src="/mainLogo.png"
-            alt="Logo"
-            style={{ height: "auto", width: "100%" }}
-          />
-        </Link>
+        <Typography variant="h5" sx={{ fontWeight: "bold", cursor: "pointer" }}>
+          Logo
+        </Typography>
       </Box>
-      <Box
-        sx={{
-          display: { xs: "none", sm: "flex" },
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
 
-{!judge_check ? (
-  <>
-    {auth && (
-      <>
-        <Button
-          variant="contained"
-          sx={{ textTransform: "none", marginRight: '1rem' }}
-          onClick={handleAddEvent}
-        >
-          Add New Event
-        </Button>
-
-        <Button
-          variant="contained"
-          sx={{ textTransform: "none", color: "white" }}
-
-        >
-          <Link
-            to="all-history"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              textTransform: "none",
+      <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 5 }}>
+        {menuItems.map((item, index) => (
+          <Typography
+            key={index}
+            onClick={() => {
+              navigate(item.route);
+              setDrawerOpen(false);
             }}
+            sx={{ fontSize: "1.1rem", cursor: "pointer" }}
           >
-            Show All History
-          </Link>
-        </Button>
-        <Button variant="contained" sx={{ marginLeft:'1rem', textTransform: "none" }}>
-          Upgrade your pricing plan
-        </Button>
-      </>
-    )}
-  </>
-) : null}
+            {item.label}
+          </Typography>
+        ))}
+      </Box>
 
-        <Box
+      <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 5 }}>
+        <Button
+          onClick={handleLogin}
+          variant="contained"
+          size="small"
           sx={{
-            display: "flex",
-            alignItems: "center",
-
-            cursor: "pointer",
+            backgroundColor: theme.palette.primary.main,
+            padding: "0.5rem 2rem",
+            textTransform: "none",
+            fontSize: "0.9rem",
+            marginLeft: "1rem",
+            borderRadius: "0px",
           }}
         >
-          {auth ? (
-            <Box>
-              <FormControl sx={{ padding: 0 }}>
-                <Select
-                  sx={{
-                    outline: "none",
-                    "&:focus": {
-                      outline: "none",
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      border: "none", // Remove the outline border
-                    },
-                  }}
-                  // value={selectedValue}
-                  // onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Select user" }}
-                  style={{ minWidth: "120px", padding: 0 }}
-                  renderValue={(selected) => (
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
-                      <Avatar
-                        alt=""
-                        // src={userData ? `${base}${userData?.profile_image}` : ""}
-                        sx={{
-                          height: "2rem",
-                          width: "2rem",
-                          marginRight: "8px",
-                        }}
-                      />
-                      <Typography sx={{ fontSize: "1rem" }}>
-                        {username}
-                      </Typography>
-                    </Box>
-                  )}
-                >
-                  <MenuItem
-                    sx={{ fontSize: "0.8rem" }}
-                    value="Logout"
-                    onClick={() => handleMenuItemClick("Logout")}
-                  >
-                    Logout
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-          ) : (
-            <Button
-              onClick={handleLogin}
-              variant="contained"
-              size="small"
-              sx={{
-                backgroundColor: theme.palette.primary.main,
-                padding: "0.5rem 2rem",
-                textTransform: "none",
-                fontSize: "0.9rem",
-                marginLeft: "1rem",
-              }}
-            >
-              Login
-            </Button>
-          )}
-        </Box>
+          Get Started
+        </Button>
       </Box>
+
       <Box sx={{ display: { xs: "flex", sm: "none" } }}>
-        <IconButton onClick={handleDrawerOpen} sx={{ padding: "10px" }}>
+        <IconButton onClick={handleDrawerOpen} sx={{ color: "white" }}>
           <MenuIcon />
         </IconButton>
-        <Drawer
-          anchor="right"
-          open={drawerOpen}
-          onClose={handleDrawerClose}
-          sx={{ zIndex: 10000000 }}
-        >
-
-
-
-
+        <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerClose}>
           <Box sx={{ width: 250, padding: "20px" }}>
-          {!judge_check ? (
-  <>
-    {auth && (
-      <>
-        <Button
-          variant="contained"
-          sx={{ textTransform: "none", marginBottom: '1rem' }}
-          onClick={handleAddEvent}
-        >
-          Add New Event
-        </Button>
-
-        <Button
-          variant="contained"
-          sx={{ textTransform: "none", color: "white", marginBottom: '1rem' }}
-        >
-          <Link
-            to="all-history"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              textTransform: "none",
-            }}
-          >
-            Show All History
-          </Link>
-        </Button>
-        <Button variant="contained" sx={{ textTransform: "none" }}>
-          Upgrade your pricing plan
-        </Button>
-      </>
-    )}
-  </>
-) : null}
-
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-
-                cursor: "pointer",
-              }}
+            <IconButton
+              onClick={handleDrawerClose}
+              sx={{ position: "absolute", top: "10px", right: "10px" }}
             >
-              {auth ? (
-                <Box>
-                  <FormControl sx={{ padding: 0 }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        mt: 5,
-                      }}
-                    >
-                      <Avatar
-                        alt=""
-                        // src={userData ? `${base}${userData?.profile_image}` : ""}
-                        sx={{
-                          height: "2rem",
-                          width: "2rem",
-                          marginRight: "8px",
-                        }}
-                      />
-                      <Typography sx={{ fontSize: "1rem" }}>
-                      {username}
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                        mt: 2,
-                      }}
-                    >
-                      <Button
-                        variant="contained"
-                        onClick={() => handleMenuItemClick("Logout")}
-                      >
-                        Logout
-                      </Button>
-                    </Box>
+              <CloseIcon />
+            </IconButton>
+            <br/>
+            <br/>
 
-                  </FormControl>
-                </Box>
-              ) : (
-                <Button
-                  onClick={handleLogin}
-                  variant="contained"
-                  sx={{
-                    backgroundColor: theme.palette.primary.main,
-                    padding: "0.5rem 2rem",
-                    textTransform: "none",
-                    fontSize: "0.9rem",
-                    mt: 4,
+            {menuItems.map((item, index) => (
+              <Box key={index}>
+                <Typography
+                  variant="h6"
+                  onClick={() => {
+                    navigate(item.route);
+                    setDrawerOpen(false);
                   }}
+                  sx={{ marginBottom: 2, marginTop:1, cursor: "pointer" }}
                 >
-                  Login
-                </Button>
-              )}
+                  {item.label}
+                </Typography>
+                {index < menuItems.length - 1 && <Divider />}
+              </Box>
+            ))}
+            <Box sx={{ marginTop: 2 }}>
+              <Button
+                variant="contained"
+                onClick={handleLogin}
+                sx={{
+                  padding: "0.8rem 0rem",
+                  borderRadius: "0px",
+                  width: "100%",
+                }}
+              >
+                Get Started
+              </Button>
             </Box>
           </Box>
         </Drawer>
