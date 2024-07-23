@@ -1,4 +1,4 @@
-import { ThemeProvider, StyledEngineProvider } from '@mui/material';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { theme } from './Theme';
 import { SnackbarProvider } from 'notistack';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';

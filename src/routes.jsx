@@ -23,6 +23,7 @@ import SignUp from "./Pages/Auth/SignUp";
 import SignIn from "./Pages/Authentication_Page/SignIn/SignIn";
 import ForgetPassword from "./Pages/Authentication_Page/ForgetPassword/ForgetPassword";
 import CreatePassword from "./Pages/Authentication_Page/CreatePassword/CreatePassword";
+import AdminMainTest from "./Admin/AdminMainTest";
 export default function Router() {
 
 
@@ -110,9 +111,10 @@ export default function Router() {
         path:'/faqs',
         element : <FAQMain/> ,
        },
-
-
-
+        {
+            path:'/admintest',
+            element : <AdminMainTest/> ,
+        },
 
 
     ])

@@ -14,13 +14,14 @@ import ListItemText from '@mui/material/ListItemText';
 import WorkIcon from '@mui/icons-material/Work';
 import ArticleIcon from '@mui/icons-material/Article';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Button } from '@mui/material';
+import { Button, useTheme } from '@mui/material';
 import Category from './components/Category/Category';
 import { Helmet } from 'react-helmet';
 import Sellers from './components/Sellers/Sellers';
 import ApprovedProducts from './components/Products/ApprovedProducts';
 import PendingProducts from './components/Products/PendingProducts';
 import AddProduct from './components/Products/AddProduct';
+import { ThemeContext } from '@emotion/react';
 // import other components and actions
 
 const drawerWidth = 240;
@@ -34,8 +35,11 @@ const listData = [
 ];
 
 const AdminMain = () => {
+
+  const theme = useTheme();
+
   const [selectedItem, setSelectedItem] = React.useState(listData[0].title);
-  const handleItemClick = (title) => {
+  const   handleItemClick = (title) => {
     setSelectedItem(title);
   };
   const handleSignOut = () => {
@@ -51,8 +55,8 @@ const AdminMain = () => {
       </Helmet>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-          <Toolbar>
+        <AppBar position="fixed" sx={{backgroundColor:"white"}}>
+          <Toolbar >
             <Typography variant="h6" noWrap component="div">
               Logo
             </Typography>
@@ -66,32 +70,42 @@ const AdminMain = () => {
           sx={{
             width: drawerWidth,
             flexShrink: 0,
-            [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+            [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box',backgroundColor:theme.palette.primary.main},
+            
           }}
         >
-          <Toolbar />
-          <Box sx={{ overflow: 'auto' }}>
-            <List sx={{ p: 1 }}>
+          <Toolbar sx={{backgroundColor:'white'}}>
+            <Typography sx={{ color:theme.palette.primary.main ,fontSize:'2rem', fontWeight:700 , zIndex:1 }}>Logo</Typography>
+          </Toolbar>
+          <Box sx={{ overflow: 'auto', backgroundColor:theme.palette.primary.main  }}>
+            <List sx={{ py: 2 }}>
               {listData.map((val, ind) => (
                 <ListItem
                   key={ind}
                   disablePadding
                   sx={{
-                    backgroundColor: selectedItem === val.title ? '#007BFF' : 'transparent',
-                    mt: 2,
-                    borderRadius: '15px',
-                    color: selectedItem === val.title ? '#fff' : '#000',
+                    backgroundColor: selectedItem === val.title ?  "white" : 'transparent',
+                    // mt: 2,
+                    borderRadius:"10px",
+                    py:2,
+                    color: selectedItem === val.title ? '#000' : '#fff',
                     '&:hover': {
-                      backgroundColor: '#007BFF',
+                      backgroundColor:"white",
+                      color:"black"
                     },
                   }}
                   onClick={() => handleItemClick(val.title)}
                 >
                   <ListItemButton>
-                    <ListItemIcon sx={{ color: selectedItem === val.title ? '#fff' : '#000' }}>
+                    <ListItemIcon sx={{ color: selectedItem === val.title ? '#000' : '#fff' ,
+                    '&:hover': {
+                      color: 'inherit' 
+                    },
+                      
+                    }}>
                       {val.icon}
                     </ListItemIcon>
-                    <ListItemText primary={val.title} sx={{ fontWeight: selectedItem === val.title && 'bold' }} />
+                    <ListItemText primary={val.title} sx={{ fontWeight: selectedItem === val.title && 'bold'}} />
                   </ListItemButton>
                 </ListItem>
               ))}
@@ -99,7 +113,7 @@ const AdminMain = () => {
             <Divider />
           </Box>
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3, height:"100vh" }}>
           <Toolbar />
           <Box>
             {selectedItem === 'Manage Categories' && <Category />}

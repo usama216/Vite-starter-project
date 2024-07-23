@@ -1,6 +1,6 @@
 import { Box, Button, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography, useTheme } from '@mui/material'
 import React from 'react'
-import Page from '../../components/Page/Page'
+// import Page from '../../components/Page/Page'
 import { Link } from 'react-router-dom'
 
 const SignUp = () => {
@@ -9,7 +9,7 @@ const SignUp = () => {
   return (
     <>
 
-    <Page title="sign-up">
+    {/* <Page title="sign-up"> */}
     <Box  sx={{marginBottom:"3rem"}}>
         <Grid container  spacing={5}>
             <Grid item lg={6} md={6} xs={12} sm={12} >
@@ -85,7 +85,7 @@ const SignUp = () => {
             </Grid>
         </Grid>
     </Box>
-    </Page>
+    {/* </Page> */}
     
     </>
   )
