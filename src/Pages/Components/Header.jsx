@@ -7,7 +7,7 @@ import {
   Divider,
   Drawer,
   IconButton,
-  Typography,
+  Typography,                                                             
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -73,11 +73,14 @@ const Header = () => {
 
   const menuItems = [
     { label: "Home", route: "/" },
-    { label: "Courses", route: "/advance-course" },
-    { label: "About", route: "/about-us" },
-    { label: "Faq's", route: "/faqs" },
-    { label: "Blogs", route: "/blogs" },
-    { label: "Contact", route: "/contact-us" },
+    { label: "Find Products", route: "/advance-course" },
+    { label: "Deck", route: "/about-us" },
+    { label: "Rims", route: "/faqs" },
+    { label: "Trailer", route: "/blogs" },
+    { label: "Moped Car", route: "/contact-us" },
+    { label: "Outlet", route: "/contact-us" },
+    { label: "Customer Service", route: "/contact-us" },
+
   ];
 
   return (
@@ -85,11 +88,11 @@ const Header = () => {
       sx={{
         backgroundColor: "transparent",
         padding: "2rem 10%",
-        color: "white",
+        color: "black",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        position: "absolute",
+        position: "relative",
         top: 0,
         left: 0,
         right: 0,
@@ -98,11 +101,11 @@ const Header = () => {
     >
       <Box>
         <Typography variant="h5" sx={{ fontWeight: "bold", cursor: "pointer" }}>
-          Logo
+         your Logo
         </Typography>
       </Box>
 
-      <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 5 }}>
+      <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 3 }}>
         {menuItems.map((item, index) => (
           <Typography
             key={index}
@@ -110,7 +113,9 @@ const Header = () => {
               navigate(item.route);
               setDrawerOpen(false);
             }}
-            sx={{ fontSize: "1.1rem", cursor: "pointer" }}
+            sx={{ fontSize: "1rem", cursor: "pointer", color:'grey',  ':hover': {
+              color: theme.palette.primary.main,
+            }, }}
           >
             {item.label}
           </Typography>
@@ -131,7 +136,7 @@ const Header = () => {
             borderRadius: "0px",
           }}
         >
-          Get Started
+          The Checkout
         </Button>
       </Box>
 

@@ -21,98 +21,10 @@ import { useLocation } from "react-router-dom";
 const Footer = () => {
   const theme = useTheme();
 
-  // const location = useLocation()
-
-
-  // const currentPath = location.pathname;
-
-  // const isHidden =
-  //   currentPath === "/";
-
-  // if (isHidden) {
-  //   return null;
-  // }
   return (
     <>
       <Box>
-        <Box
-          sx={{
-            backgroundColor: theme.palette.primary.main,
-            padding: "3rem 5%",
-            color: "white",
-          }}
-        >
-          <Grid container spacing={3} alignItems={"center"}>
-            <Grid item lg={5} md={5} sm={12} xs={12}>
-              <Typography
-                variant="h1"
-                sx={{ fontSize: "1.5rem", fontWeight: "700" }}
-              >
-                We have got amazing deals just for you
-              </Typography>
-
-              <Typography sx={{ fontSize: "0.9rem" }}>
-              Subscribe to the newsletter and stay up to date...
-              </Typography>
-            </Grid>
-
-            <Grid item lg={3} md={3} sm={12} xs={12}>
-
-            </Grid>
-
-            <Grid item lg={4} md={4} sm={12} xs={12}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-evenly",
-                  alignItems: "center",
-                }}
-              >
-                <TextField
-                  fullWidth
-                  placeholder="Enter your Email"
-                  sx={{
-                    "& .MuiInputBase-root": {
-                      border: "none",
-                      padding: 0, // Set padding to 0
-                      "&:hover": {
-                        borderColor: "transparent",
-                      },
-                      "&.Mui-focused": {
-                        boxShadow: "none",
-                      },
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      display: "none",
-                    },
-                    borderRadius: "0px",
-                    backgroundColor: "white",
-                  }}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment
-                        position="end"
-                        sx={{
-                          backgroundColor: "black",
-                          padding: "1.8rem 1rem",
-                          color: "white",
-                        }}
-                      >
-                        <SearchOutlinedIcon />
-                      </InputAdornment>
-                    ),
-                    sx: {
-                      "& input::placeholder": {
-                        color: "red",
-                      },
-                      padding: 0, // Ensure no padding for the input
-                    },
-                  }}
-                />
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
+       
 
         <Box sx={{ padding: "3rem 5%" }}>
           <Grid container spacing={5} alignItems={"start"}>
